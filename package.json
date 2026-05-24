@@ -91,7 +91,7 @@
     "@ai-sdk/groq": "^3.0.39",
     "@ai-sdk/mistral": "^3.0.37",
     "@ai-sdk/openai": "^3.0.64",
-    "@types/node": "^22.0.0",
+    "@types/node": "^25.9.1",
     "tsup": "^8.3.0",
     "typescript": "^5.7.0",
     "vitest": "^2.1.0"
