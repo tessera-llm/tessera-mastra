@@ -1,14 +1,18 @@
-name: Publish Node (@tessera-llm/mastra) to npm
+name: Publish Node to npm (sigstore-attested)
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write   # OIDC token for sigstore attestation
 
 jobs:
   publish:
-    name: Build + publish @tessera-llm/mastra
+    name: Build + publish (sigstore-signed)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,8 +21,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm install
@@ -32,7 +36,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Publish to npm
+      - name: Check NPM_TOKEN secret
+        id: check-secret
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::warning::NPM_TOKEN secret not set on this repo. Set via: gh secret set NPM_TOKEN --repo tessera-llm/<repo>"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to npm (sigstore-attested)
+        if: steps.check-secret.outputs.skip == "false"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance
+
