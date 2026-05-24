@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "@tessera-llm/mastra",
   "version": "0.1.1",
   "description": "Drop-in Tessera integration for the Mastra agent framework. One line of config routes every Mastra Agent's LLM calls through Tessera's auto-route + auto-cache + auto-compress + auto-batch proxy. Compatible with @ai-sdk/openai, @ai-sdk/anthropic, @ai-sdk/mistral, @ai-sdk/groq, @ai-sdk/cohere — Mastra's first-class AI SDK provider interop. Free 60M tokens/mo. Production: 20% of measured savings.",

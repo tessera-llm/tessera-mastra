@@ -1,4 +1,4 @@
-﻿name: Publish Node (@tessera-llm/mastra) to npm
+name: Publish Node (@tessera-llm/mastra) to npm
 
 on:
   push:

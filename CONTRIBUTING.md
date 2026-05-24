@@ -1,4 +1,4 @@
-﻿# Contributing to tessera-mastra
+# Contributing to tessera-mastra
 
 Thanks for your interest. The package is Apache-2.0 licensed and PRs are welcome.
 

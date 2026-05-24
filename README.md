@@ -1,4 +1,4 @@
-﻿# `@tessera-llm/mastra`
+# `@tessera-llm/mastra`
 
 **Drop-in cost optimization for the [Mastra](https://mastra.ai) agent framework.** One line of config routes every Mastra Agent's LLM calls through the [Tessera](https://tesseraai.io) optimization proxy: auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Sandbox tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
 
