@@ -93,7 +93,7 @@
     "@ai-sdk/openai": "^3.0.64",
     "@types/node": "^22.0.0",
     "tsup": "^8.3.0",
-    "typescript": "^5.7.0",
+    "typescript": "^6.0.3",
     "vitest": "^2.1.0"
   },
   "publishConfig": {
